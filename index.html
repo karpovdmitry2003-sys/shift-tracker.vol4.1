@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Трекер смен v4.1</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#111827">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="wrap">
+
+    <header class="header">
+        <h1>Трекер смен</h1>
+        <div id="unfinishedBanner" class="banner hidden">
+            ⚠ Незавершённая смена
+        </div>
+    </header>
+
+    <!-- Сегодня -->
+    <section id="tab-today" class="tab active">
+
+        <div class="card">
+            <h2>Текущая смена</h2>
+
+            <div id="status">
+                Смена не начата
+            </div>
+
+            <div class="statsGrid">
+
+                <div class="statCard">
+                    <span>Смена</span>
+                    <b id="shift">00:00</b>
+                </div>
+
+                <div class="statCard">
+                    <span>Паузы</span>
+                    <b id="breaks">00:00</b>
+                </div>
+
+                <div class="statCard">
+                    <span>Работа</span>
+                    <b id="work">00:00</b>
+                </div>
+
+            </div>
+
+            <div class="btnGrid">
+
+                <button id="startShift">
+                    ▶ Начать смену
+                </button>
+
+                <button id="startBreak">
+                    ☕ Начать паузу
+                </button>
+
+                <button id="endBreak">
+                    ✓ Закончить паузу
+                </button>
+
+                <button id="endShift" class="danger">
+                    ■ Закончить смену
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+            <h2>Заметка</h2>
+
+            <textarea
+                id="shiftNote"
+                placeholder="Например: Picking / Packing / Training">
+            </textarea>
+        </div>
+
+        <div class="card">
+            <h2>Этот месяц</h2>
+
+            <div id="monthQuickStats">
+                Смен: 0 · Часов: 00:00
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- История -->
+    <section id="tab-history" class="tab">
+
+        <div class="card">
+
+            <h2>История смен</h2>
+
+            <input
+                type="month"
+                id="month">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Поиск по заметкам">
+
+            <div id="summary"></div>
+
+        </div>
+
+        <div id="history"></div>
+
+    </section>
+
+
+
+    <!-- Статистика -->
+    <section id="tab-stats" class="tab">
+
+        <div class="card">
+
+            <h2>Статистика месяца</h2>
+
+            <div class="statsList">
+
+                <div>
+                    Смен:
+                    <b id="statShifts">0</b>
+                </div>
+
+                <div>
+                    Часов:
+                    <b id="statHours">00:00</b>
+                </div>
+
+                <div>
+                    Средняя смена:
+                    <b id="statAverage">00:00</b>
+                </div>
+
+                <div>
+                    Самая длинная:
+                    <b id="statLongest">00:00</b>
+                </div>
+
+                <div>
+                    Самая короткая:
+                    <b id="statShortest">00:00</b>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Настройки -->
+    <section id="tab-settings" class="tab">
+
+        <div class="card">
+
+            <h2>Тема</h2>
+
+            <div class="btnGrid">
+
+                <button id="themeDark">
+                    🌙 Тёмная
+                </button>
+
+                <button id="themeLight">
+                    ☀ Светлая
+                </button>
+
+                <button id="themeAuto">
+                    ⚙ Авто
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Данные</h2>
+
+            <div class="btnGrid">
+
+                <button id="exportBtn">
+                    Экспорт JSON
+                </button>
+
+                <button id="exportCsvBtn">
+                    Экспорт CSV
+                </button>
+
+                <label class="buttonLike">
+                    Импорт JSON
+                    <input hidden type="file" id="importFile">
+                </label>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+
+<nav class="bottomNav">
+
+    <button data-tab="today">
+        🏠
+        <span>Сегодня</span>
+    </button>
+
+    <button data-tab="history">
+        📋
+        <span>История</span>
+    </button>
+
+    <button data-tab="stats">
+        📊
+        <span>Статистика</span>
+    </button>
+
+    <button data-tab="settings">
+        ⚙️
+        <span>Настройки</span>
+    </button>
+
+</nav>
+
+<script src="app.js"></script>
+
+</body>
+</html>
